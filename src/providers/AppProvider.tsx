@@ -1,13 +1,13 @@
 "use client";
 
-import { AppSidebar } from "@/components/app-sidebar";
+import { AppSidebar } from "@/components/layout/AppSidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 interface RootProviderProps {
   children: React.ReactNode;
 }
 
-export function RootProvider({ children }: RootProviderProps) {
+export function AppProvider({ children }: RootProviderProps) {
   return (
     <SidebarProvider>
       <AppSidebar />

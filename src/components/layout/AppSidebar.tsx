@@ -3,7 +3,6 @@
 import * as React from "react";
 import { Home, Orbit } from "lucide-react";
 
-import { NavMain } from "@/components/nav-main";
 import {
   Sidebar,
   SidebarContent,
@@ -13,6 +12,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { NavMain } from "./NavMain";
 
 const data = [
   {
