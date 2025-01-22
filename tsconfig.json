@@ -19,7 +19,13 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/types/*": ["./src/core/domain/types/*"],
+      "@/models/*": ["./src/core/domain/models/*"],
+      "@/adapters/*": ["./src/core/interfaces/adapters/*"],
+      "@/useCases/*": ["./src/core/interfaces/useCases/*"],
+      "@/services/*": ["./src/core/services/*"],
+      "@/graphql/*": ["./src/infra/api/graphql/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
