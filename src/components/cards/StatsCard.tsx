@@ -1,6 +1,7 @@
 import { LucideIcon, MinusIcon } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { StatsCardSkeleton } from "./StatsCardSkeleton";
+import { formatNumber } from "@/utils/format";
 
 interface StatsCardProps {
   title?: string;
@@ -28,7 +29,7 @@ export function StatsCard({
         <Icon className="h-4 w-4 text-muted-foreground" />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold mb-1">{value}</div>
+        <div className="text-2xl font-bold mb-1">{formatNumber(value)}</div>
         <p className="text-xs text-muted-foreground">{description}</p>
       </CardContent>
     </Card>
