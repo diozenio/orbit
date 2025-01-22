@@ -1,16 +1,21 @@
+"use client";
+
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { GitCommit, CheckSquare } from "lucide-react";
 import {
   StatsCardList,
   type StatsCardData,
 } from "@/components/cards/StatsCardList";
+import { useGithubStats } from "@/hooks/useGithubStats";
 
 export default function Home() {
+  const { yearlyCommits, isLoading } = useGithubStats();
+
   const statsCards: StatsCardData[] = [
     {
       title: "Commits this year",
-      value: 1234,
-      description: "Since January 2025",
+      value: yearlyCommits,
+      description: `Since January ${new Date().getFullYear()}`,
       icon: GitCommit,
     },
     {
@@ -27,7 +32,7 @@ export default function Home() {
         <SidebarTrigger className="flex md:hidden" />
         <h1 className="text-lg font-semibold md:text-2xl">Dashboard</h1>
       </div>
-      <StatsCardList cards={statsCards} />
+      <StatsCardList cards={statsCards} isLoading={isLoading} />
     </main>
   );
 }
