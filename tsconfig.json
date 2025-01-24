@@ -25,7 +25,8 @@
       "@/adapters/*": ["./src/core/interfaces/adapters/*"],
       "@/useCases/*": ["./src/core/interfaces/useCases/*"],
       "@/services/*": ["./src/core/services/*"],
-      "@/graphql/*": ["./src/infra/api/graphql/*"]
+      "@/graphql/*": ["./src/infra/api/graphql/*"],
+      "@/sdks/*": ["./src/infra/sdks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

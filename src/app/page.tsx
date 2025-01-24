@@ -7,9 +7,11 @@ import {
   type StatsCardData,
 } from "@/components/cards/StatsCardList";
 import { useGithubStats } from "@/hooks/useGithubStats";
+import { useLinearStats } from "@/hooks/useLinearStats";
 
 export default function Home() {
-  const { yearlyCommits, isLoading } = useGithubStats();
+  const { yearlyCommits, isLoading: isLoadingGithub } = useGithubStats();
+  const { weeklyTasks, isLoading: isLoadingLinear } = useLinearStats();
 
   const statsCards: StatsCardData[] = [
     {
@@ -20,11 +22,13 @@ export default function Home() {
     },
     {
       title: "Tasks this week",
-      value: 15,
+      value: weeklyTasks,
       description: "Completed in the last 7 days",
       icon: CheckSquare,
     },
   ];
+
+  const isLoading = isLoadingGithub || isLoadingLinear;
 
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">

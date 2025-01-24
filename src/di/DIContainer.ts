@@ -1,5 +1,7 @@
 import GithubGraphQLAPI from "@/graphql/github";
 import GithubService from "@/services/GithubService";
+import LinearService from "@/services/LinearService";
+import LinearAPI from "@/sdks/linear";
 import { GITHUB_CONFIG } from "@/config";
 
 const GithubServiceInstance = new GithubService(
@@ -9,6 +11,9 @@ const GithubServiceInstance = new GithubService(
   })
 );
 
+const LinearServiceInstance = new LinearService(new LinearAPI());
+
 export const services = {
   GithubService: GithubServiceInstance,
+  LinearService: LinearServiceInstance,
 } as const;
