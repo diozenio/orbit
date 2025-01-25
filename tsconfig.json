@@ -26,7 +26,8 @@
       "@/useCases/*": ["./src/core/interfaces/useCases/*"],
       "@/services/*": ["./src/core/services/*"],
       "@/graphql/*": ["./src/infra/api/graphql/*"],
-      "@/sdks/*": ["./src/infra/sdks/*"]
+      "@/sdks/*": ["./src/infra/sdks/*"],
+      "@/api/*": ["./src/infra/api/rest/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
