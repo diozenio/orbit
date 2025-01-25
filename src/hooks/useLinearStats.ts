@@ -11,7 +11,7 @@ export function useLinearStats() {
         const tasks = await services.LinearService.getTasksCompletedThisWeek();
         setWeeklyTasks(tasks);
       } catch (error) {
-        console.error("Erro ao buscar estatísticas do Linear:", error);
+        console.error("Error fetching Linear statistics:", error);
       } finally {
         setIsLoading(false);
       }
