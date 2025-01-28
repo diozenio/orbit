@@ -6,4 +6,8 @@ export default class LinearService {
   async getTasksCompletedThisWeek(): Promise<number> {
     return this.linearAdapter.getTasksCompletedThisWeek();
   }
+
+  async getTotalPoints(): Promise<number> {
+    return this.linearAdapter.getTotalPoints();
+  }
 }

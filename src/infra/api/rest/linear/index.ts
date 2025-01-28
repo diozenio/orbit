@@ -15,4 +15,15 @@ export default class LinearAPI extends LinearAdapter {
 
     return data.weeklyTasks;
   }
+
+  async getTotalPoints(): Promise<number> {
+    const response = await fetch("/api/linear/total-points");
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error);
+    }
+
+    return data.totalPoints;
+  }
 }
