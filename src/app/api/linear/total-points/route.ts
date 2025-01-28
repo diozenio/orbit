@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { LinearClient } from "@linear/sdk";
 import { LINEAR_CONFIG } from "@/config";
-import { calculateTaskPoints } from "@/core/utils/points";
+import { calculateTaskPoints } from "@/utils/points";
 
 const linearClient = new LinearClient({
   apiKey: LINEAR_CONFIG.apiKey,
