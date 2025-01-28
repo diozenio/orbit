@@ -1,7 +1,7 @@
 "use client";
 
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { GitCommit, CheckSquare } from "lucide-react";
+import { GitCommit, CheckSquare, Trophy } from "lucide-react";
 import {
   StatsCardList,
   type StatsCardData,
@@ -11,7 +11,11 @@ import { useLinearStats } from "@/hooks/useLinearStats";
 
 export default function Home() {
   const { yearlyCommits, isLoading: isLoadingGithub } = useGithubStats();
-  const { weeklyTasks, isLoading: isLoadingLinear } = useLinearStats();
+  const {
+    weeklyTasks,
+    totalPoints,
+    isLoading: isLoadingLinear,
+  } = useLinearStats();
 
   const statsCards: StatsCardData[] = [
     {
@@ -25,6 +29,12 @@ export default function Home() {
       value: weeklyTasks,
       description: "Completed in the last 7 days",
       icon: CheckSquare,
+    },
+    {
+      title: "Total Points",
+      value: totalPoints,
+      description: "From all completed tasks",
+      icon: Trophy,
     },
   ];
 
