@@ -2,6 +2,7 @@ import { LucideIcon, MinusIcon } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { StatsCardSkeleton } from "./StatsCardSkeleton";
 import { formatNumber } from "@/utils/format";
+import { i18n } from "@/i18n";
 
 interface StatsCardProps {
   title?: string;
@@ -12,9 +13,9 @@ interface StatsCardProps {
 }
 
 export function StatsCard({
-  title = "No title",
+  title = i18n.t("stats.noTitle"),
   value = 0,
-  description = "No description",
+  description = i18n.t("stats.noDescription"),
   icon: Icon = MinusIcon,
   isLoading = false,
 }: StatsCardProps) {

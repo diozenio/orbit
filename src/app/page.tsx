@@ -8,6 +8,7 @@ import {
 } from "@/components/cards/StatsCardList";
 import { useGithubStats } from "@/hooks/useGithubStats";
 import { useLinearStats } from "@/hooks/useLinearStats";
+import { i18n } from "@/i18n";
 
 export default function Home() {
   const { yearlyCommits, isLoading: isLoadingGithub } = useGithubStats();
@@ -19,21 +20,21 @@ export default function Home() {
 
   const statsCards: StatsCardData[] = [
     {
-      title: "Commits this year",
+      title: i18n.t("stats.dashboard.cards.commits.title"),
       value: yearlyCommits,
-      description: `Since January ${new Date().getFullYear()}`,
+      description: i18n.t("stats.dashboard.cards.commits.description"),
       icon: GitCommit,
     },
     {
-      title: "Tasks this week",
+      title: i18n.t("stats.dashboard.cards.tasks.title"),
       value: weeklyTasks,
-      description: "Completed in the last 7 days",
+      description: i18n.t("stats.dashboard.cards.tasks.description"),
       icon: CheckSquare,
     },
     {
-      title: "Total Points",
+      title: i18n.t("stats.dashboard.cards.points.title"),
       value: totalPoints,
-      description: "From all completed tasks",
+      description: i18n.t("stats.dashboard.cards.points.description"),
       icon: Trophy,
     },
   ];
@@ -44,7 +45,9 @@ export default function Home() {
     <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
       <div className="flex flex-row gap-1 items-center">
         <SidebarTrigger className="flex md:hidden" />
-        <h1 className="text-lg font-semibold md:text-2xl">Dashboard</h1>
+        <h1 className="text-lg font-semibold md:text-2xl">
+          {i18n.t("stats.dashboard.title")}
+        </h1>
       </div>
       <StatsCardList cards={statsCards} isLoading={isLoading} />
     </main>

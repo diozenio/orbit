@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { AppProvider } from "@/providers/AppProvider";
+import { i18n } from "@/i18n";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Orbit",
-  description: "Everything that orbits around you, centralized.",
+  title: i18n.t("app.title"),
+  description: i18n.t("app.description"),
 };
 
 export default function RootLayout({
