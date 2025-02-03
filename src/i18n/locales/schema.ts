@@ -23,6 +23,20 @@ export const schema = {
         },
       },
     },
+    crypto: {
+      title: "",
+      subtitle: "",
+      portfolioTotal: "",
+      table: {
+        headers: {
+          asset: "",
+          price: "",
+          change: "",
+          amount: "",
+          total: "",
+        },
+      },
+    },
   },
   common: {
     loading: "",

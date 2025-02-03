@@ -9,6 +9,7 @@ import {
 import { useGithubStats } from "@/hooks/useGithubStats";
 import { useLinearStats } from "@/hooks/useLinearStats";
 import { i18n } from "@/i18n";
+import { PortfolioTracker } from "@/components/components/crypto/PortfolioTracker";
 
 export default function Home() {
   const { yearlyCommits, isLoading: isLoadingGithub } = useGithubStats();
@@ -45,11 +46,15 @@ export default function Home() {
     <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
       <div className="flex flex-row gap-1 items-center">
         <SidebarTrigger className="flex md:hidden" />
-        <h1 className="text-lg font-semibold md:text-2xl">
+        <h1 className="text-xl font-semibold">
           {i18n.t("stats.dashboard.title")}
         </h1>
       </div>
       <StatsCardList cards={statsCards} isLoading={isLoading} />
+
+      <div className="mt-8">
+        <PortfolioTracker />
+      </div>
     </main>
   );
 }
