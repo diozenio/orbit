@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { services } from "@/di/DIContainer";
+import { services } from "@/gateways";
 
 export function useLinearStats() {
   const [weeklyTasks, setWeeklyTasks] = useState<number>(0);
