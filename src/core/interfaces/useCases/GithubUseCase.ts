@@ -4,5 +4,5 @@ import GithubContributions from "@/models/github/GithubContributions";
 export default abstract class GithubUseCase {
   constructor(protected readonly adapter: GithubAdapter) {}
 
-  abstract getYearlyContributions(): Promise<GithubContributions>;
+  abstract getContributionsSince(date: Date): Promise<GithubContributions>;
 }

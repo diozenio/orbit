@@ -9,8 +9,11 @@ export function useGithubStats() {
   useEffect(() => {
     const fetchCommits = async () => {
       try {
+        const currentYear = new Date().getFullYear();
+        const startOfYear = new Date(currentYear, 0, 1);
+
         const contributions =
-          await services.GithubService.getYearlyContributions();
+          await services.GithubService.getContributionsSince(startOfYear);
 
         setYearlyCommits(contributions.getTotalCommits());
         setError(null);
