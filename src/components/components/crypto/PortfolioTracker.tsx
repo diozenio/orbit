@@ -118,6 +118,22 @@ export function PortfolioTracker({ assets }: PortfolioTrackerProps) {
                   {i18n.t("stats.crypto.table.headers.price")}
                 </SortableHeader>
                 <SortableHeader
+                  field="1h"
+                  currentSort={sort}
+                  onSort={handleSort}
+                  className="text-center hidden sm:table-cell"
+                >
+                  1h
+                </SortableHeader>
+                <SortableHeader
+                  field="12h"
+                  currentSort={sort}
+                  onSort={handleSort}
+                  className="text-center hidden sm:table-cell"
+                >
+                  12h
+                </SortableHeader>
+                <SortableHeader
                   field="24h"
                   currentSort={sort}
                   onSort={handleSort}
@@ -180,6 +196,12 @@ export function PortfolioTracker({ assets }: PortfolioTrackerProps) {
                   </TableCell>
                   <TableCell className="text-sm whitespace-nowrap px-2">
                     {formatCurrency(asset.price)}
+                  </TableCell>
+                  <TableCell className="text-center hidden sm:table-cell">
+                    <PriceChange value={asset.changes["1h"]} />
+                  </TableCell>
+                  <TableCell className="text-center hidden sm:table-cell">
+                    <PriceChange value={asset.changes["12h"]} />
                   </TableCell>
                   <TableCell className="text-center hidden sm:table-cell">
                     <PriceChange value={asset.changes["24h"]} />
