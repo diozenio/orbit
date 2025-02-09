@@ -13,3 +13,15 @@ export const formatNumber = (
     maximumFractionDigits: 0,
   }).format(value);
 };
+
+export const formatCurrency = (
+  value: number,
+  locale: string = "en-US",
+  currency: string | undefined = "USD"
+) => {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency,
+    currencyDisplay: "narrowSymbol",
+  }).format(value);
+};
