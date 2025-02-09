@@ -56,8 +56,24 @@ const SortableHeader = ({
 };
 
 export function PortfolioTracker({ assets }: PortfolioTrackerProps) {
+  const getTotalValue = (asset: CryptoAsset) => asset.value;
 
-  const totalValue = sortedData.reduce((acc, asset) => acc + asset.value, 0);
+  const sortFunctions = {
+    name: (asset: CryptoAsset) => asset.name,
+    price: (asset: CryptoAsset) => asset.price,
+    "1h": (asset: CryptoAsset) => asset.changes["1h"],
+    "12h": (asset: CryptoAsset) => asset.changes["12h"],
+    "24h": (asset: CryptoAsset) => asset.changes["24h"],
+    "7d": (asset: CryptoAsset) => asset.changes["7d"],
+    "30d": (asset: CryptoAsset) => asset.changes["30d"],
+    amount: (asset: CryptoAsset) => asset.amount,
+    value: (asset: CryptoAsset) => asset.value,
+  };
+
+  const { sort, handleSort, sortedData, totalValue } = useTableFunctions<
+    CryptoAsset,
+    keyof typeof sortFunctions
+  >(assets, { field: "name", order: "desc" }, sortFunctions, getTotalValue);
 
   return (
     <div className="w-full">
