@@ -8,42 +8,16 @@ import {
 } from "@/components/ui/table";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { i18n } from "@/i18n";
-import { useState } from "react";
+import {
+  SortableHeaderProps,
+  PriceChangeProps,
+  PortfolioTrackerProps,
+  CryptoAsset,
+} from "./PortfolioTracker.types";
+import { useTableFunctions } from "@/utils/table";
+import { formatCurrency } from "@/utils/format";
 
-interface CryptoAsset {
-  id: string;
-  name: string;
-  symbol: string;
-  price: number;
-  changes: {
-    "1h": number;
-    "12h": number;
-    "24h": number;
-    "7d": number;
-    "30d": number;
-  };
-  amount: number;
-  value: number;
-  imageUrl: string;
-}
-
-type SortField =
-  | "name"
-  | "price"
-  | "1h"
-  | "12h"
-  | "24h"
-  | "7d"
-  | "30d"
-  | "amount"
-  | "value";
-type SortOrder = "asc" | "desc";
-
-const mockData: CryptoAsset[] = [
-  // ... mockData ...
-];
-
-const PriceChange = ({ value }: { value: number }) => (
+const PriceChange = ({ value }: PriceChangeProps) => (
   <div className="flex items-center gap-1">
     <div className="w-3 h-3 flex items-center justify-center">
       {value > 0 ? (
@@ -67,13 +41,7 @@ const SortableHeader = ({
   currentSort,
   onSort,
   className = "",
-}: {
-  field: SortField;
-  children: React.ReactNode;
-  currentSort: { field: SortField; order: SortOrder };
-  onSort: (field: SortField) => void;
-  className?: string;
-}) => {
+}: SortableHeaderProps) => {
   const isCurrentSort = currentSort.field === field;
   return (
     <TableHead
@@ -87,49 +55,7 @@ const SortableHeader = ({
   );
 };
 
-export function PortfolioTracker() {
-  const [sort, setSort] = useState<{ field: SortField; order: SortOrder }>({
-    field: "name",
-    order: "desc",
-  });
-
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "USD",
-      currencyDisplay: "narrowSymbol",
-    }).format(value);
-  };
-
-  const handleSort = (field: SortField) => {
-    setSort((prev) => ({
-      field,
-      order: prev.field === field && prev.order === "desc" ? "asc" : "desc",
-    }));
-  };
-
-  const sortedData = [...mockData].sort((a, b) => {
-    const multiplier = sort.order === "desc" ? 1 : -1;
-
-    switch (sort.field) {
-      case "name":
-        return multiplier * b.name.localeCompare(a.name);
-      case "price":
-        return multiplier * (b.price - a.price);
-      case "1h":
-      case "12h":
-      case "24h":
-      case "7d":
-      case "30d":
-        return multiplier * (b.changes[sort.field] - a.changes[sort.field]);
-      case "amount":
-        return multiplier * (b.amount - a.amount);
-      case "value":
-        return multiplier * (b.value - a.value);
-      default:
-        return 0;
-    }
-  });
+export function PortfolioTracker({ assets }: PortfolioTrackerProps) {
 
   const totalValue = sortedData.reduce((acc, asset) => acc + asset.value, 0);
 

@@ -6,8 +6,7 @@ import {
   StatsCardList,
   type StatsCardData,
 } from "@/components/cards/StatsCardList";
-import { useGithubStats } from "@/hooks/useGithubStats";
-import { useLinearStats } from "@/hooks/useLinearStats";
+import { useLinearStats, usePortfolioTracker, useGithubStats } from "@/hooks";
 import { i18n } from "@/i18n";
 import { PortfolioTracker } from "@/components/components/crypto/PortfolioTracker";
 
@@ -18,6 +17,8 @@ export default function Home() {
     totalPoints,
     isLoading: isLoadingLinear,
   } = useLinearStats();
+
+  const { assets } = usePortfolioTracker();
 
   const statsCards: StatsCardData[] = [
     {
@@ -53,7 +54,7 @@ export default function Home() {
       <StatsCardList cards={statsCards} isLoading={isLoading} />
 
       <div className="mt-8">
-        <PortfolioTracker />
+        <PortfolioTracker assets={assets} />
       </div>
     </main>
   );
