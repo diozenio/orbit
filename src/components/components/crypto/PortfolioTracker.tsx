@@ -73,7 +73,7 @@ export function PortfolioTracker({ assets }: PortfolioTrackerProps) {
   const { sort, handleSort, sortedData, totalValue } = useTableFunctions<
     CryptoAsset,
     keyof typeof sortFunctions
-  >(assets, { field: "name", order: "desc" }, sortFunctions, getTotalValue);
+  >(assets, { field: "name", order: "asc" }, sortFunctions, getTotalValue);
 
   return (
     <div className="w-full">
