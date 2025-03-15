@@ -12,3 +12,12 @@ export interface ItemProps extends ItemBaseProps {
   Icon: LucideIcon;
   items?: SubItemProps[];
 }
+
+export interface Group {
+  label?: string;
+  items: ItemProps[];
+}
+
+export interface GroupsProps {
+  groups: Group[];
+}
