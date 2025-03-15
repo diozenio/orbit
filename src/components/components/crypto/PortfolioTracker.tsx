@@ -18,7 +18,7 @@ import { useTableFunctions } from "@/utils/table";
 import { formatCurrency } from "@/utils/format";
 
 const PriceChange = ({ value }: PriceChangeProps) => (
-  <div className="flex items-center gap-1">
+  <div className="flex items-center">
     <div className="w-3 h-3 flex items-center justify-center">
       {value > 0 ? (
         <div className="w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-b-[5px] border-b-emerald-300" />
@@ -29,8 +29,7 @@ const PriceChange = ({ value }: PriceChangeProps) => (
     <span
       className={`text-xs ${value > 0 ? "text-emerald-300" : "text-red-500"}`}
     >
-      {value > 0 ? "+" : ""}
-      {value.toFixed(2)}%
+      {Math.abs(value).toFixed(2)}%
     </span>
   </div>
 );
