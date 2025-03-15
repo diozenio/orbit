@@ -45,4 +45,12 @@ export const ptBR: LocaleSchema = {
     error: "Erro",
     success: "Sucesso",
   },
+  sidebar: {
+    home: "Início",
+    finances: {
+      label: "Finanças",
+      crypto: "Criptomoedas",
+      expenses: "Despesas",
+    },
+  },
 };

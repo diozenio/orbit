@@ -43,6 +43,14 @@ export const schema = {
     error: "",
     success: "",
   },
+  sidebar: {
+    home: "",
+    finances: {
+      label: "",
+      crypto: "",
+      expenses: "",
+    },
+  },
 } as const;
 
 type DeepStringify<T> = {

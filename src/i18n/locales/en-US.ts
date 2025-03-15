@@ -45,4 +45,12 @@ export const enUS: LocaleSchema = {
     error: "Error",
     success: "Success",
   },
+  sidebar: {
+    home: "Home",
+    finances: {
+      label: "Finances",
+      crypto: "Crypto",
+      expenses: "Expenses",
+    },
+  },
 };
