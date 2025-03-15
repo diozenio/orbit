@@ -1,3 +1,5 @@
+import { type LucideIcon } from "lucide-react";
+
 export interface ItemBaseProps {
   title: string;
   url?: string;
@@ -5,3 +7,8 @@ export interface ItemBaseProps {
 }
 
 export type SubItemProps = ItemBaseProps;
+
+export interface ItemProps extends ItemBaseProps {
+  Icon: LucideIcon;
+  items?: SubItemProps[];
+}
