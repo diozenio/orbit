@@ -1,19 +1,10 @@
-"use client";
-
-import { AppSidebar } from "@/components/AppSidebar";
-import { SidebarInset, SidebarProvider } from "@/primitives/sidebar";
-
-interface RootProviderProps {
-  children: React.ReactNode;
-}
-
-export function AppProvider({ children }: RootProviderProps) {
+import { PropsWithChildren } from "react";
+import { SidebarProvider } from "./SidebarProvider";
+import { QueryProvider } from "./QueryProvider";
+export function AppProvider({ children }: PropsWithChildren) {
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarInset>
-        <div className="flex flex-1 flex-col">{children}</div>
-      </SidebarInset>
-    </SidebarProvider>
+    <QueryProvider>
+      <SidebarProvider>{children}</SidebarProvider>
+    </QueryProvider>
   );
 }
