@@ -1,14 +1,11 @@
 "use client";
 
-import { SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarTrigger } from "@/primitives/sidebar";
 import { GitCommit, CheckSquare, Trophy } from "lucide-react";
-import {
-  StatsCardList,
-  type StatsCardData,
-} from "@/components/components/StatsCard";
+import { StatsCardList, type StatsCardData } from "@/components/StatsCard";
 import { useLinearStats, usePortfolioTracker, useGithubStats } from "@/hooks";
 import { i18n } from "@/i18n";
-import { PortfolioTracker } from "@/components/components/Crypto/PortfolioTracker";
+import { PortfolioTracker } from "@/components/Crypto/PortfolioTracker";
 
 export default function HomeLayout() {
   const { yearlyCommits, isLoading: isLoadingGithub } = useGithubStats();
