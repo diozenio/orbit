@@ -8,7 +8,7 @@ import {
 } from "@/components/cards/StatsCardList";
 import { useLinearStats, usePortfolioTracker, useGithubStats } from "@/hooks";
 import { i18n } from "@/i18n";
-import { PortfolioTracker } from "@/components/components/crypto/PortfolioTracker";
+import { PortfolioTracker } from "@/components/components/Crypto/PortfolioTracker";
 
 export default function Home() {
   const { yearlyCommits, isLoading: isLoadingGithub } = useGithubStats();
