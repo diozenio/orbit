@@ -1,7 +1,7 @@
 "use client";
 
 import { AppSidebar } from "@/components/AppSidebar";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@/primitives/sidebar";
 
 interface RootProviderProps {
   children: React.ReactNode;

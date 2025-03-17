@@ -30,6 +30,7 @@
       "@/api/*": ["./src/infra/api/*"],
       "@/mocks/*": ["./src/infra/mocks/*"],
       "@/components/*": ["./src/ui/components/*"],
+      "@/primitives/*": ["./src/ui/primitives/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
