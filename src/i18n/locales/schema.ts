@@ -1,56 +1,11 @@
+import { app, stats, crypto, common, sidebar } from "./resources";
+
 export const schema = {
-  app: {
-    title: "",
-    description: "",
-  },
-  stats: {
-    noTitle: "",
-    noDescription: "",
-    dashboard: {
-      title: "",
-      cards: {
-        commits: {
-          title: "",
-          description: "",
-        },
-        tasks: {
-          title: "",
-          description: "",
-        },
-        points: {
-          title: "",
-          description: "",
-        },
-      },
-    },
-    crypto: {
-      title: "",
-      subtitle: "",
-      portfolioTotal: "",
-      table: {
-        headers: {
-          asset: "",
-          price: "",
-          change: "",
-          amount: "",
-          total: "",
-        },
-      },
-    },
-  },
-  common: {
-    loading: "",
-    error: "",
-    success: "",
-  },
-  sidebar: {
-    home: "",
-    finances: {
-      label: "",
-      crypto: "",
-      expenses: "",
-    },
-  },
+  app,
+  stats,
+  crypto,
+  common,
+  sidebar,
 } as const;
 
 type DeepStringify<T> = {
