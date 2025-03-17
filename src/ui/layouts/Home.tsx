@@ -1,45 +1,9 @@
-"use client";
-
 import { SidebarTrigger } from "@/primitives/sidebar";
-import { GitCommit, CheckSquare, Trophy } from "lucide-react";
-import { StatsCardList, type StatsCardData } from "@/components/StatsCard";
-import { useLinearStats, usePortfolioTracker, useGithubStats } from "@/hooks";
+import { StatsCardList } from "@/components/StatsCard";
+
 import { i18n } from "@/i18n";
-import { PortfolioTracker } from "@/components/Crypto/PortfolioTracker";
 
 export default function HomeLayout() {
-  const { yearlyCommits, isLoading: isLoadingGithub } = useGithubStats();
-  const {
-    weeklyTasks,
-    totalPoints,
-    isLoading: isLoadingLinear,
-  } = useLinearStats();
-
-  const { assets } = usePortfolioTracker();
-
-  const statsCards: StatsCardData[] = [
-    {
-      title: i18n.t("stats.dashboard.cards.commits.title"),
-      value: yearlyCommits,
-      description: i18n.t("stats.dashboard.cards.commits.description"),
-      icon: GitCommit,
-    },
-    {
-      title: i18n.t("stats.dashboard.cards.tasks.title"),
-      value: weeklyTasks,
-      description: i18n.t("stats.dashboard.cards.tasks.description"),
-      icon: CheckSquare,
-    },
-    {
-      title: i18n.t("stats.dashboard.cards.points.title"),
-      value: totalPoints,
-      description: i18n.t("stats.dashboard.cards.points.description"),
-      icon: Trophy,
-    },
-  ];
-
-  const isLoading = isLoadingGithub || isLoadingLinear;
-
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
       <div className="flex flex-row gap-1 items-center">
@@ -48,11 +12,7 @@ export default function HomeLayout() {
           {i18n.t("stats.dashboard.title")}
         </h1>
       </div>
-      <StatsCardList cards={statsCards} isLoading={isLoading} />
-
-      <div className="mt-8">
-        <PortfolioTracker assets={assets} />
-      </div>
+      <StatsCardList />
     </main>
   );
 }

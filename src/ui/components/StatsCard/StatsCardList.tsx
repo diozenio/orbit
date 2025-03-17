@@ -1,33 +1,47 @@
-import { LucideIcon } from "lucide-react";
-import { StatsCard } from "./StatsCard";
+"use client";
 
-export interface StatsCardData {
-  title?: string;
-  value?: string | number;
-  description?: string;
-  icon?: LucideIcon;
-}
+import { CheckSquare, GitCommit, Trophy } from "lucide-react";
+import { StatsCard, StatsCardProps } from "./StatsCard";
+import { useLinearStats } from "@/hooks/useLinearStats";
+import { i18n } from "@/i18n";
+import { useGithubStats } from "@/hooks/useGithubStats";
 
-export interface StatsCardListProps {
-  cards: StatsCardData[];
-  isLoading?: boolean;
-}
+export function StatsCardList() {
+  const { yearlyCommits, isLoading: isLoadingGithub } = useGithubStats();
+  const {
+    weeklyTasks,
+    totalPoints,
+    isLoading: isLoadingLinear,
+  } = useLinearStats();
 
-export function StatsCardList({
-  cards,
-  isLoading = false,
-}: StatsCardListProps) {
+  const cards: StatsCardProps[] = [
+    {
+      title: i18n.t("stats.dashboard.cards.commits.title"),
+      value: yearlyCommits,
+      description: i18n.t("stats.dashboard.cards.commits.description"),
+      icon: GitCommit,
+      isLoading: isLoadingGithub,
+    },
+    {
+      title: i18n.t("stats.dashboard.cards.tasks.title"),
+      value: weeklyTasks,
+      description: i18n.t("stats.dashboard.cards.tasks.description"),
+      icon: CheckSquare,
+      isLoading: isLoadingLinear,
+    },
+    {
+      title: i18n.t("stats.dashboard.cards.points.title"),
+      value: totalPoints,
+      description: i18n.t("stats.dashboard.cards.points.description"),
+      icon: Trophy,
+      isLoading: isLoadingLinear,
+    },
+  ];
+
   return (
     <div className="grid gap-4 md:grid-cols-3">
       {cards.map((card, index) => (
-        <StatsCard
-          key={index}
-          title={card.title}
-          value={card.value}
-          description={card.description}
-          icon={card.icon}
-          isLoading={isLoading}
-        />
+        <StatsCard key={`${card.title}-${index}`} {...card} />
       ))}
     </div>
   );

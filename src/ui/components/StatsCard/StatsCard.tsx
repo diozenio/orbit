@@ -4,7 +4,7 @@ import { StatsCardSkeleton } from "./StatsCardSkeleton";
 import { formatNumber } from "@/utils/format";
 import { i18n } from "@/i18n";
 
-interface StatsCardProps {
+export interface StatsCardProps {
   title?: string;
   value?: string | number;
   description?: string;
