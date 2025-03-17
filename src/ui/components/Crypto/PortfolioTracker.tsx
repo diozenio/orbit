@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Table,
   TableBody,
@@ -79,16 +81,14 @@ export function PortfolioTracker({ assets }: PortfolioTrackerProps) {
       <div className="border rounded-lg overflow-hidden">
         <div className="flex justify-between items-center px-4 py-4 border-b bg-muted/40">
           <div className="flex flex-col gap-1">
-            <h2 className="text-base font-medium">
-              {i18n.t("stats.crypto.title")}
-            </h2>
+            <h2 className="text-base font-medium">{i18n.t("crypto.title")}</h2>
             <span className="text-xs text-muted-foreground">
-              {i18n.t("stats.crypto.subtitle")}
+              {i18n.t("crypto.subtitle")}
             </span>
           </div>
           <div className="flex flex-col items-end gap-1">
             <span className="text-xs text-muted-foreground">
-              {i18n.t("stats.crypto.portfolioTotal")}
+              {i18n.t("crypto.portfolioTotal")}
             </span>
             <span className="text-base font-medium">
               {formatCurrency(totalValue)}
@@ -106,7 +106,7 @@ export function PortfolioTracker({ assets }: PortfolioTrackerProps) {
                   onSort={handleSort}
                   className="pr-2"
                 >
-                  {i18n.t("stats.crypto.table.headers.asset")}
+                  {i18n.t("crypto.table.headers.asset")}
                 </SortableHeader>
                 <SortableHeader
                   field="price"
@@ -114,7 +114,7 @@ export function PortfolioTracker({ assets }: PortfolioTrackerProps) {
                   onSort={handleSort}
                   className="px-2"
                 >
-                  {i18n.t("stats.crypto.table.headers.price")}
+                  {i18n.t("crypto.table.headers.price")}
                 </SortableHeader>
                 <SortableHeader
                   field="1h"
@@ -162,7 +162,7 @@ export function PortfolioTracker({ assets }: PortfolioTrackerProps) {
                   onSort={handleSort}
                   className="hidden sm:table-cell"
                 >
-                  {i18n.t("stats.crypto.table.headers.amount")}
+                  {i18n.t("crypto.table.headers.amount")}
                 </SortableHeader>
                 <SortableHeader
                   field="value"
@@ -170,7 +170,7 @@ export function PortfolioTracker({ assets }: PortfolioTrackerProps) {
                   onSort={handleSort}
                   className="text-right pl-2"
                 >
-                  {i18n.t("stats.crypto.table.headers.total")}
+                  {i18n.t("crypto.table.headers.total")}
                 </SortableHeader>
               </TableRow>
             </TableHeader>
