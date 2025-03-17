@@ -28,7 +28,8 @@
       "@/graphql/*": ["./src/infra/graphql/*"],
       "@/sdks/*": ["./src/infra/sdks/*"],
       "@/api/*": ["./src/infra/api/*"],
-      "@/mocks/*": ["./src/infra/mocks/*"]
+      "@/mocks/*": ["./src/infra/mocks/*"],
+      "@/components/*": ["./src/ui/components/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

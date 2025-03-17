@@ -2,7 +2,7 @@ import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
-} from "@/components/ui/sidebar";
+} from "@/primitives/sidebar";
 import Item from "./Item";
 import { GroupsProps } from "../AppSidebar.types";
 import { usePathname } from "next/navigation";

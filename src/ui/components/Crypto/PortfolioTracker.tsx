@@ -5,8 +5,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+} from "@/primitives/table";
+import { Avatar, AvatarFallback, AvatarImage } from "@/primitives/avatar";
 import { i18n } from "@/i18n";
 import {
   SortableHeaderProps,

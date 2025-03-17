@@ -1,6 +1,6 @@
 "use client";
 
-import { AppSidebar } from "@/components/components/AppSidebar";
+import { AppSidebar } from "@/components/AppSidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 interface RootProviderProps {

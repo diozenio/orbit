@@ -1,4 +1,4 @@
-import { SidebarRail } from "@/components/ui/sidebar";
+import { SidebarRail } from "@/primitives/sidebar";
 import { ChevronLeft } from "lucide-react";
 
 function Toggle() {

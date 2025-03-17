@@ -1,5 +1,5 @@
 import { LucideIcon, MinusIcon } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/primitives/card";
 import { StatsCardSkeleton } from "./StatsCardSkeleton";
 import { formatNumber } from "@/utils/format";
 import { i18n } from "@/i18n";

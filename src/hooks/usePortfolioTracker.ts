@@ -1,4 +1,4 @@
-import { CryptoAsset } from "@/components/components/Crypto";
+import { CryptoAsset } from "@/components/Crypto";
 
 const mockData: CryptoAsset[] = [
   {

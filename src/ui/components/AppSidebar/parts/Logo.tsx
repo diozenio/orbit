@@ -3,7 +3,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
+} from "@/primitives/sidebar";
 import { Orbit } from "lucide-react";
 import Link from "next/link";
 

@@ -2,12 +2,12 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+} from "@/primitives/collapsible";
 import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
-} from "@/components/ui/sidebar";
+} from "@/primitives/sidebar";
 import SubItem from "./SubItem";
 import { ChevronRight } from "lucide-react";
 import { ItemProps } from "../AppSidebar.types";

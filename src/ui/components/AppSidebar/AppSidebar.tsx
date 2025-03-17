@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { Sidebar, SidebarContent } from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent } from "@/primitives/sidebar";
 
 import { Groups, Logo, Toggle } from "./parts";
 import { sidebarItems } from "./sidebarItems";

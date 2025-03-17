@@ -1,7 +1,4 @@
-import {
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
-} from "@/components/ui/sidebar";
+import { SidebarMenuSubButton, SidebarMenuSubItem } from "@/primitives/sidebar";
 import Link from "next/link";
 import { SubItemProps } from "../AppSidebar.types";
 
