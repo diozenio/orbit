@@ -1,29 +1,22 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { services } from "@/gateways";
 
 export function useLinearStats() {
-  const [weeklyTasks, setWeeklyTasks] = useState<number>(0);
-  const [totalPoints, setTotalPoints] = useState<number>(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["linearStats"],
+    queryFn: async () => {
+      const [tasks, total] = await Promise.all([
+        services.LinearService.getTasksCompletedThisWeek(),
+        services.LinearService.getTotalPoints(),
+      ]);
+      return { weeklyTasks: tasks, totalPoints: total };
+    },
+  });
 
-  useEffect(() => {
-    async function fetchStats() {
-      try {
-        const [tasks, total] = await Promise.all([
-          services.LinearService.getTasksCompletedThisWeek(),
-          services.LinearService.getTotalPoints(),
-        ]);
-        setWeeklyTasks(tasks);
-        setTotalPoints(total);
-      } catch (error) {
-        console.error("Error fetching Linear statistics:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchStats();
-  }, []);
-
-  return { weeklyTasks, totalPoints, isLoading };
+  return {
+    weeklyTasks: data?.weeklyTasks ?? 0,
+    totalPoints: data?.totalPoints ?? 0,
+    isLoading,
+    error,
+  };
 }
