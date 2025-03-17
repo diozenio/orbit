@@ -1,36 +1,22 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { services } from "@/gateways";
 
 export function useGithubStats() {
-  const [yearlyCommits, setYearlyCommits] = useState<number>(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const currentYear = new Date().getFullYear();
+  const startOfYear = new Date(currentYear, 0, 1);
 
-  useEffect(() => {
-    const fetchCommits = async () => {
-      try {
-        const currentYear = new Date().getFullYear();
-        const startOfYear = new Date(currentYear, 0, 1);
-
-        const contributions =
-          await services.GithubService.getContributionsSince(startOfYear);
-
-        setYearlyCommits(contributions.getTotalCommits());
-        setError(null);
-      } catch (err) {
-        setError(
-          err instanceof Error ? err.message : "Failed to fetch commits"
-        );
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchCommits();
-  }, []);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["githubStats"],
+    queryFn: async () => {
+      const contributions = await services.GithubService.getContributionsSince(
+        startOfYear
+      );
+      return contributions.getTotalCommits();
+    },
+  });
 
   return {
-    yearlyCommits,
+    yearlyCommits: data ?? 0,
     isLoading,
     error,
   };
