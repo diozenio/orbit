@@ -8,7 +8,7 @@ export interface StatsCardData {
   icon?: LucideIcon;
 }
 
-interface StatsCardListProps {
+export interface StatsCardListProps {
   cards: StatsCardData[];
   isLoading?: boolean;
 }
