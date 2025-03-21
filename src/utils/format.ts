@@ -1,3 +1,5 @@
+import { i18n } from "@/i18n";
+
 type NumberSeparator = "comma" | "dot";
 
 export const formatNumber = (
@@ -16,8 +18,8 @@ export const formatNumber = (
 
 export const formatCurrency = (
   value: number,
-  locale: string = "en-US",
-  currency: string | undefined = "USD"
+  currency: string | undefined = "USD",
+  locale: string = i18n.getCurrentLanguage()
 ) => {
   return new Intl.NumberFormat(locale, {
     style: "currency",
