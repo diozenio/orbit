@@ -45,8 +45,27 @@ export class I18nService {
     return this.currentLanguage;
   }
 
-  t<P extends Path<Messages>>(path: P): PathValue<Messages, P> {
-    // @ts-expect-error: Recursive type reduction is hard to type correctly
-    return path.split(".").reduce((obj, key) => obj[key], this.messages);
+  t<P extends Path<Messages>>(path: P): PathValue<Messages, P>;
+  t<P extends Path<Messages>>(
+    path: P,
+    options: Record<string, string | number>
+  ): string;
+
+  t<P extends Path<Messages>>(
+    path: P,
+    options?: Record<string, string | number>
+  ): PathValue<Messages, P> | string {
+    const message = path
+      .split(".")
+      // @ts-expect-error: Recursive type reduction is hard to type correctly
+      .reduce((obj, key) => obj[key], this.messages) as unknown as string;
+
+    if (!options) {
+      return message;
+    }
+
+    return message.replace(/\{(\w+)\}/g, (_, key) => {
+      return options[key]?.toString() ?? `{${key}}`;
+    });
   }
 }
