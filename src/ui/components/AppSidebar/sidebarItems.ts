@@ -1,5 +1,5 @@
 import { i18n } from "@/i18n";
-import { Bitcoin, Home } from "lucide-react";
+import { Bitcoin, HandCoins, Home } from "lucide-react";
 import { Group as AppSidebarItems } from "./AppSidebar.types";
 
 export const sidebarItems: AppSidebarItems[] = [
@@ -19,6 +19,11 @@ export const sidebarItems: AppSidebarItems[] = [
         title: i18n.t("sidebar.finances.crypto"),
         url: "/crypto",
         Icon: Bitcoin,
+      },
+      {
+        title: i18n.t("sidebar.finances.expenses"),
+        url: "/expenses",
+        Icon: HandCoins,
       },
     ],
   },
