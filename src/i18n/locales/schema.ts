@@ -1,9 +1,10 @@
-import { app, stats, crypto, common, sidebar } from "./resources";
+import { app, stats, crypto, common, sidebar, expenses } from "./resources";
 
 export const schema = {
   app,
   stats,
   crypto,
+  expenses,
   common,
   sidebar,
 } as const;

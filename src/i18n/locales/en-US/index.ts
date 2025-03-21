@@ -4,6 +4,7 @@ import { stats } from "./stats";
 import { common } from "./common";
 import { sidebar } from "./sidebar";
 import { crypto } from "./crypto";
+import { expenses } from "./expenses";
 
 export const enUS: LocaleSchema = {
   app,
@@ -11,4 +12,5 @@ export const enUS: LocaleSchema = {
   common,
   sidebar,
   crypto,
+  expenses,
 };

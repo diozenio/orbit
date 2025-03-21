@@ -4,11 +4,12 @@ import { stats } from "./stats";
 import { common } from "./common";
 import { sidebar } from "./sidebar";
 import { crypto } from "./crypto";
-
+import { expenses } from "./expenses";
 export const ptBR: LocaleSchema = {
   app,
   stats,
   common,
   sidebar,
   crypto,
+  expenses,
 };
