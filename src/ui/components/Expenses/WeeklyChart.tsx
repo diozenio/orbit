@@ -19,6 +19,7 @@ import {
 import { ChartContainer, ChartTooltip } from "@/primitives/chart";
 import { formatCurrency } from "@/utils/format";
 import { i18n } from "@/i18n";
+import { DailyExpensesDTO } from "@/core/domain/models/expenses/DailyExpenses";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CustomTooltip = ({ active, payload, dailyLimit }: any) => {
@@ -44,23 +45,23 @@ const CustomTooltip = ({ active, payload, dailyLimit }: any) => {
 
 interface WeeklyChartProps {
   dailyLimit: number;
-  chartData: { day: string; value: number }[];
+  dailyExpenses: DailyExpensesDTO[];
 }
 
 export default function WeeklyChart({
   dailyLimit,
-  chartData,
+  dailyExpenses,
 }: WeeklyChartProps) {
   return (
     <Card className="flex flex-col justify-between">
-      <CardHeader className="flex flex-row justify-between items-center w-full">
+      <CardHeader className="flex flex-row justify-between items-start w-full">
         <div className="space-y-1.5">
           <CardTitle>{i18n.t("expenses.charts.weekly.title")}</CardTitle>
           <CardDescription>
             {i18n.t("expenses.charts.weekly.description")}
           </CardDescription>
         </div>
-        <div className="text-sm text-muted-foreground">
+        <div className="text-sm text-muted-foreground leading-none">
           {i18n.t("expenses.charts.weekly.limit")}:{" "}
           <span className="font-medium text-foreground">
             {formatCurrency(dailyLimit, "BRL")}
@@ -70,7 +71,7 @@ export default function WeeklyChart({
       <CardContent className="h-full">
         <ResponsiveContainer width="100%" height={280}>
           <ChartContainer config={{}}>
-            <BarChart accessibilityLayer data={chartData}>
+            <BarChart accessibilityLayer data={dailyExpenses}>
               <CartesianGrid vertical={false} />
               <XAxis
                 dataKey="day"
@@ -81,12 +82,12 @@ export default function WeeklyChart({
               <ChartTooltip
                 content={<CustomTooltip hideLabel dailyLimit={dailyLimit} />}
               />
-              <Bar dataKey="value" radius={[4, 4, 0, 0]}>
-                {chartData.map((entry, index) => (
+              <Bar dataKey="amount" radius={[4, 4, 0, 0]}>
+                {dailyExpenses.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
                     fill={
-                      entry.value < 0
+                      entry.amount < 0
                         ? "hsl(var(--muted))"
                         : "hsl(var(--primary))"
                     }
