@@ -1,4 +1,4 @@
-import { LucideIcon, MinusIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/primitives/card";
 import { StatsCardSkeleton } from "./StatsCardSkeleton";
 import { formatNumber } from "@/utils/format";
@@ -18,7 +18,7 @@ export function StatsCard({
   title = i18n.t("stats.noTitle"),
   value = 0,
   description = i18n.t("stats.noDescription"),
-  icon: Icon = MinusIcon,
+  icon: Icon,
   isLoading = false,
   className,
 }: StatsCardProps) {
@@ -30,7 +30,7 @@ export function StatsCard({
     <Card className={cn(className)}>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-sm font-medium">{title}</CardTitle>
-        <Icon className="h-4 w-4 text-muted-foreground" />
+        {Icon && <Icon className="h-4 w-4 text-muted-foreground" />}
       </CardHeader>
       <CardContent>
         <div className="text-2xl font-bold mb-1">{formatNumber(value)}</div>
