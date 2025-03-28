@@ -46,7 +46,7 @@ export default function MonthLimit({
   startMonth,
   year,
 }: MonthLimitProps) {
-  const percentage = (spent / limit) * 100 || 100;
+  const percentage = Number(((spent / limit) * 100 || 100).toFixed(2));
 
   const chartData = [
     {
