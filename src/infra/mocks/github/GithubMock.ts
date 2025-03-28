@@ -1,6 +1,7 @@
-import GithubAdapter from "@/core/interfaces/adapters/GithubAdapter";
-import GithubContributions from "@/core/domain/models/github/GithubContributions";
+import GithubAdapter from "@/adapters/GithubAdapter";
+import GithubContributions from "@/models/github/GithubContributions";
 import { delay } from "@/utils/delay";
+
 export class GithubMock implements GithubAdapter {
   async getContributionsSince(date: Date): Promise<GithubContributions> {
     await delay(1000);
