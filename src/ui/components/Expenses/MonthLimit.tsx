@@ -75,8 +75,8 @@ export default function MonthLimit({
           <RadialBarChart
             data={chartData}
             endAngle={180}
-            innerRadius={80}
-            outerRadius={130}
+            innerRadius={100}
+            outerRadius={140}
           >
             <ChartTooltip
               cursor={false}
@@ -90,14 +90,14 @@ export default function MonthLimit({
                       <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle">
                         <tspan
                           x={viewBox.cx}
-                          y={(viewBox.cy || 0) - 16}
+                          y={(viewBox.cy || 0) - 24}
                           className="fill-foreground text-lg font-bold"
                         >
                           {formatCurrency(spent, "BRL")}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
-                          y={(viewBox.cy || 0) + 4}
+                          y={viewBox.cy || 0}
                           className="fill-muted-foreground"
                         >
                           {i18n.t("expenses.charts.monthly.spent")}
@@ -126,7 +126,7 @@ export default function MonthLimit({
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 font-medium leading-none">
+        <div className="flex items-center gap-2 font-medium text-center">
           {i18n.t("expenses.charts.monthly.consumed", {
             spent: formatCurrency(spent, "BRL"),
             limit: formatCurrency(limit, "BRL"),
