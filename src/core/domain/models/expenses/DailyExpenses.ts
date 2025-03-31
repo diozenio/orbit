@@ -1,10 +1,11 @@
+import { locale } from "@/constants/locale";
 import Model from "@/models/Model";
 import DTO from "@/types/http/DTO";
 
 export interface DailyExpensesDTO extends DTO {
   date: string;
   amount: number;
-  day: string;
+  day?: string;
 }
 
 export default class DailyExpenses extends Model {
@@ -22,7 +23,7 @@ export default class DailyExpenses extends Model {
     return new DailyExpenses(
       date,
       json.amount,
-      date.toLocaleDateString("pt-BR", { weekday: "long" })
+      date.toLocaleDateString(locale, { weekday: "short" })
     );
   }
 
