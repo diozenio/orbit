@@ -1,16 +1,16 @@
 import { Card } from "@/primitives/card";
+import { Icon } from "@/ui/primitives/icon";
 import { formatCurrency } from "@/utils/format";
-import { LucideIcon } from "lucide-react";
 
 interface TransactionItemProps {
-  icon: LucideIcon;
+  icon?: string;
   title: string;
   description: string;
   amount: number;
 }
 
 export function TransactionItem({
-  icon: Icon,
+  icon = "credit-card",
   title,
   description,
   amount,
@@ -19,7 +19,7 @@ export function TransactionItem({
     <Card className="border-0 flex items-center w-full justify-between shadow-none">
       <div className="flex items-center gap-4">
         <div className="h-12 aspect-square rounded-lg flex items-center justify-center bg-muted">
-          <Icon size={16} color="hsl(var(--muted-foreground))" />
+          <Icon name={icon} color="hsl(var(--muted-foreground))" />
         </div>
         <div className="flex flex-col">
           <span className="font-medium">{title}</span>
