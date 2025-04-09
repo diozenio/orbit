@@ -2,7 +2,7 @@ import ExpensesAdapter from "@/adapters/ExpensesAdapter";
 import ExpensesResponse, {
   ExpensesResponseDTO,
 } from "@/models/expenses/ExpensesResponse";
-import { DailyExpensesDTO } from "@/core/domain/models/expenses/DailyExpenses";
+import TransactionCategory from "@/models/expenses/TransactionCategory";
 
 const dailyExpenses: DailyExpensesDTO[] = [
   { date: "2025-03-24", amount: 100 },
@@ -32,5 +32,19 @@ export default class ExpensesMock extends ExpensesAdapter {
     };
 
     return ExpensesResponse.fromJSON(expensesResponse);
+  }
+
+  async getTransactionsCategories(): Promise<TransactionCategory[]> {
+    const data = [
+      {
+        id: "00093840-ccd4-4bbe-9f75-6563cbb7c597",
+        name: "Alimentação",
+        icon: "beef",
+        createdAt: "2025-04-09T17:39:46.170Z",
+        updatedAt: "2025-04-09T17:39:46.170Z",
+      },
+    ];
+
+    return data.map(TransactionCategory.fromJSON);
   }
 }
