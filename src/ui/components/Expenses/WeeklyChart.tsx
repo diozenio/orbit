@@ -19,7 +19,7 @@ import {
 import { ChartContainer, ChartTooltip } from "@/primitives/chart";
 import { formatCurrency } from "@/utils/format";
 import { i18n } from "@/i18n";
-import { DailyExpensesDTO } from "@/core/domain/models/expenses/DailyExpenses";
+import { DailyExpensesDTO } from "@/models/expenses/DailyExpenses";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CustomTooltip = ({ active, payload, dailyLimit }: any) => {
