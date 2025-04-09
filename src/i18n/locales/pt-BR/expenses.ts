@@ -28,5 +28,10 @@ export const expenses: LocaleSchema["expenses"] = {
   },
   transactions: {
     title: "Últimas Transações",
+    emptyState: {
+      title: "Nenhuma transação encontrada",
+      description:
+        "Adicione uma transação para começar a controlar seus gastos",
+    },
   },
 };

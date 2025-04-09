@@ -28,5 +28,9 @@ export const expenses: LocaleSchema["expenses"] = {
   },
   transactions: {
     title: "Latest Transactions",
+    emptyState: {
+      title: "No transactions found",
+      description: "Add a transaction to start tracking your expenses",
+    },
   },
 };

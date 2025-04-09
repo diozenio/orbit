@@ -26,5 +26,9 @@ export const expenses = {
   },
   transactions: {
     title: "",
+    emptyState: {
+      title: "",
+      description: "",
+    },
   },
 };
