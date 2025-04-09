@@ -6,14 +6,14 @@ interface TransactionItemProps {
   icon: LucideIcon;
   title: string;
   description: string;
-  value: number;
+  amount: number;
 }
 
 export function TransactionItem({
   icon: Icon,
   title,
   description,
-  value,
+  amount,
 }: TransactionItemProps) {
   return (
     <Card className="border-0 flex items-center w-full justify-between shadow-none">
@@ -26,7 +26,7 @@ export function TransactionItem({
           <span className="text-sm text-muted-foreground">{description}</span>
         </div>
       </div>
-      <span className="font-medium">{formatCurrency(value, "BRL")}</span>
+      <span className="font-medium">{formatCurrency(amount, "BRL")}</span>
     </Card>
   );
 }
