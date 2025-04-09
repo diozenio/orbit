@@ -36,6 +36,6 @@ export default class ExpensesAPI extends ExpensesAdapter {
       throw new Error(response.data.error);
     }
 
-    return response.data.map(Transaction.fromJSON);
+    return response.data.map(TransactionCategory.fromJSON);
   }
 }
