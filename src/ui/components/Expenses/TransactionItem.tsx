@@ -5,7 +5,7 @@ import { formatCurrency } from "@/utils/format";
 interface TransactionItemProps {
   icon?: string;
   title: string;
-  description: string;
+  description?: string;
   amount: number;
 }
 
@@ -23,7 +23,9 @@ export function TransactionItem({
         </div>
         <div className="flex flex-col">
           <span className="font-medium">{title}</span>
-          <span className="text-sm text-muted-foreground">{description}</span>
+          {description && (
+            <span className="text-sm text-muted-foreground">{description}</span>
+          )}
         </div>
       </div>
       <span className="font-medium">{formatCurrency(amount, "BRL")}</span>
