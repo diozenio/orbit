@@ -2,6 +2,8 @@ import ExpensesAdapter from "@/adapters/ExpensesAdapter";
 import ExpensesResponse, {
   ExpensesResponseDTO,
 } from "@/models/expenses/ExpensesResponse";
+import { DailyExpensesDTO } from "@/models/expenses/DailyExpenses";
+import Transaction from "@/models/expenses/Transaction";
 import TransactionCategory from "@/models/expenses/TransactionCategory";
 
 const dailyExpenses: DailyExpensesDTO[] = [
@@ -32,6 +34,22 @@ export default class ExpensesMock extends ExpensesAdapter {
     };
 
     return ExpensesResponse.fromJSON(expensesResponse);
+  }
+
+  async getTransactions(): Promise<Transaction[]> {
+    const data = [
+      {
+        id: "6900796b-8ff6-4216-b6ea-70c7d179baf8",
+        title: "Uber Eats",
+        amount: -100,
+        type: "EXPENSE",
+        createdAt: "2025-04-09T17:39:56.932Z",
+        updatedAt: "2025-04-09T17:39:56.932Z",
+        transactionCategoryId: "00093840-ccd4-4bbe-9f75-6563cbb7c597",
+      },
+    ];
+
+    return data.map(Transaction.fromJSON);
   }
 
   async getTransactionsCategories(): Promise<TransactionCategory[]> {
