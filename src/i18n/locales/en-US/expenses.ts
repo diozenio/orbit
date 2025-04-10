@@ -9,6 +9,9 @@ export const expenses: LocaleSchema["expenses"] = {
       description:
         "Make changes to your expenses here. Click save when you're done.",
       submit: "Save Changes",
+      inputs: {
+        monthlyLimit: "Monthly Limit",
+      },
     },
   },
   cards: {

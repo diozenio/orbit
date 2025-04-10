@@ -9,6 +9,9 @@ export const expenses: LocaleSchema["expenses"] = {
       description:
         "Faça alterações em seus gastos aqui. Clique em salvar ao terminar.",
       submit: "Salvar Alterações",
+      inputs: {
+        monthlyLimit: "Limite Mensal",
+      },
     },
   },
   cards: {

@@ -6,6 +6,9 @@ export const expenses = {
       title: "",
       description: "",
       submit: "",
+      inputs: {
+        monthlyLimit: "",
+      },
     },
   },
   cards: {

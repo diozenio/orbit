@@ -29,8 +29,10 @@ function EditExpenses() {
           </DialogDescription>
         </DialogHeader>
         <div className="space-y-4 py-4">
-          <MoneyInput id="weeklyLimit" label="Weekly Limit" />
-          <MoneyInput id="dailyLimit" label="Daily Limit" />
+          <MoneyInput
+            id="weeklyLimit"
+            label={i18n.t("expenses.actions.dialog.inputs.monthlyLimit")}
+          />
         </div>
         <DialogFooter>
           <Button type="submit">
