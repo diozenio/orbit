@@ -1,5 +1,13 @@
 export const expenses = {
   title: "",
+  actions: {
+    trigger: "",
+    dialog: {
+      title: "",
+      description: "",
+      submit: "",
+    },
+  },
   cards: {
     total: "",
     totalDescription: "",

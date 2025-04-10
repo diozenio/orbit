@@ -2,6 +2,15 @@ import { LocaleSchema } from "../schema";
 
 export const expenses: LocaleSchema["expenses"] = {
   title: "Expenses",
+  actions: {
+    trigger: "Edit Expenses",
+    dialog: {
+      title: "Edit Expenses",
+      description:
+        "Make changes to your expenses here. Click save when you're done.",
+      submit: "Save Changes",
+    },
+  },
   cards: {
     total: "Total Expenses",
     totalDescription: "Total expenses for the month",
