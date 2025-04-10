@@ -17,9 +17,6 @@ import { formatCurrency } from "@/utils/format";
 interface MonthLimitProps {
   spent: number;
   limit: number;
-  startMonth: string;
-  endMonth: string;
-  year: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -39,13 +36,7 @@ const CustomTooltip = ({ active, payload, limit, spent }: any) => {
   return null;
 };
 
-export default function MonthLimit({
-  spent = 0,
-  limit = 0,
-  endMonth,
-  startMonth,
-  year,
-}: MonthLimitProps) {
+export default function MonthLimit({ spent = 0, limit = 0 }: MonthLimitProps) {
   const percentage = Number(((spent / limit) * 100 || 100).toFixed(2));
 
   const chartData = [
@@ -60,11 +51,7 @@ export default function MonthLimit({
       <CardHeader className="items-center pb-0">
         <CardTitle>{i18n.t("expenses.charts.monthly.title")}</CardTitle>
         <CardDescription>
-          {i18n.t("expenses.charts.monthly.description", {
-            startMonth,
-            endMonth,
-            year,
-          })}
+          {i18n.t("expenses.charts.monthly.description")}
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-1 items-center pb-0">

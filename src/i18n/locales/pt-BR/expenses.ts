@@ -20,7 +20,7 @@ export const expenses: LocaleSchema["expenses"] = {
     },
     monthly: {
       title: "Valor Mensal Total",
-      description: "{startMonth} - {endMonth} {year}",
+      description: "Seu Resumo de Gastos",
       spent: "Gastos",
       consumed: "Você consumiu {value} de um limite de {limit}",
       represents: "Isso representa {percentage} do seu limite",

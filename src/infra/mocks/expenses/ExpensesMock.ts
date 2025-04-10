@@ -28,9 +28,6 @@ export default class ExpensesMock extends ExpensesAdapter {
       dailyLimit: 100,
       monthlyLimit: 2500,
       remaining: 1209.68,
-      startMonth: "January",
-      endMonth: "February",
-      year: "2024",
     };
 
     return ExpensesResponse.fromJSON(expensesResponse);

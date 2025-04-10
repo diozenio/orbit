@@ -47,13 +47,7 @@ export default async function ExpensesLayout() {
           dailyLimit={dailyLimit}
           dailyExpenses={dailyExpenses.map((expense) => expense.toJSON())}
         />
-        <MonthLimit
-          limit={monthlyLimit}
-          spent={totalSpent}
-          year={year}
-          startMonth={startMonth}
-          endMonth={endMonth}
-        />
+        <MonthLimit limit={monthlyLimit} spent={totalSpent} />
       </div>
       <div className="w-full">
         <TransactionList />

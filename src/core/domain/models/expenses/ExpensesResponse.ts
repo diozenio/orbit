@@ -8,9 +8,6 @@ export interface ExpensesResponseDTO extends DTO {
   dailyLimit: number;
   monthlyLimit: number;
   remaining: number;
-  startMonth: string;
-  endMonth: string;
-  year: string;
 }
 
 export default class ExpensesResponse extends Model {
@@ -19,10 +16,7 @@ export default class ExpensesResponse extends Model {
     public readonly totalSpent: number,
     public readonly dailyLimit: number,
     public readonly monthlyLimit: number,
-    public readonly remaining: number,
-    public readonly startMonth: string,
-    public readonly endMonth: string,
-    public readonly year: string
+    public readonly remaining: number
   ) {
     super();
   }
@@ -33,10 +27,7 @@ export default class ExpensesResponse extends Model {
       json.totalSpent,
       json.dailyLimit,
       json.monthlyLimit,
-      json.remaining,
-      json.startMonth,
-      json.endMonth,
-      json.year
+      json.remaining
     );
 
     return test;
@@ -51,9 +42,6 @@ export default class ExpensesResponse extends Model {
       dailyLimit: this.dailyLimit,
       monthlyLimit: this.monthlyLimit,
       remaining: this.remaining,
-      startMonth: this.startMonth,
-      endMonth: this.endMonth,
-      year: this.year,
     };
   }
 
@@ -75,17 +63,5 @@ export default class ExpensesResponse extends Model {
 
   getRemaining(): number {
     return this.remaining;
-  }
-
-  getStartMonth(): string {
-    return this.startMonth;
-  }
-
-  getEndMonth(): string {
-    return this.endMonth;
-  }
-
-  getYear(): string {
-    return this.year;
   }
 }
