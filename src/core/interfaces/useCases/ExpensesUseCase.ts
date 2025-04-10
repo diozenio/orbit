@@ -6,7 +6,7 @@ import TransactionCategory from "@/models/expenses/TransactionCategory";
 export default abstract class ExpensesUseCase {
   constructor(protected readonly adapter: ExpensesAdapter) {}
 
-  abstract getExpenses(): Promise<ExpensesResponse>;
+  abstract getExpenses(month: string, year: string): Promise<ExpensesResponse>;
   abstract getTransactions(): Promise<Transaction[]>;
   abstract getTransactionsCategories(): Promise<TransactionCategory[]>;
 }

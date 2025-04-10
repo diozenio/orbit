@@ -9,8 +9,13 @@ export default class ExpensesAPI extends ExpensesAdapter {
     super();
   }
 
-  async getExpenses(): Promise<ExpensesResponse> {
-    const response = await api.get("/expenses");
+  async getExpenses(month?: string, year?: string): Promise<ExpensesResponse> {
+    const response = await api.get("/expenses", {
+      params: {
+        month,
+        year,
+      },
+    });
 
     if (response.status !== 200) {
       throw new Error(response.data.error);

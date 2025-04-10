@@ -4,8 +4,8 @@ import Transaction from "@/models/expenses/Transaction";
 import TransactionCategory from "@/models/expenses/TransactionCategory";
 
 export default class ExpensesService extends ExpensesUseCase {
-  async getExpenses(): Promise<ExpensesResponse> {
-    return this.adapter.getExpenses();
+  async getExpenses(month: string, year: string): Promise<ExpensesResponse> {
+    return this.adapter.getExpenses(month, year);
   }
 
   async getTransactions(): Promise<Transaction[]> {
