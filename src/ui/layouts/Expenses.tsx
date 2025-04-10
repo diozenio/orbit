@@ -1,3 +1,5 @@
+"use client";
+
 import { Scaffold } from "@/components/Scaffold";
 import { StatsCard } from "@/components/StatsCard";
 import { i18n } from "@/i18n";
@@ -6,19 +8,26 @@ import { Coins, CreditCard, HandCoins } from "lucide-react";
 import WeeklyChart from "@/components/Expenses/WeeklyChart";
 import MonthLimit from "@/components/Expenses/MonthLimit";
 import { TransactionList } from "@/components/Expenses/TransactionList";
-import { services } from "@/gateways";
+import { useExpenses } from "@/hooks/useExpenses";
+import { Spinner } from "@/ui/primitives/spinner";
 
-export default async function ExpensesLayout() {
+export default function ExpensesLayout() {
   const {
     dailyExpenses,
     totalSpent,
     dailyLimit,
     monthlyLimit,
     remaining,
-    endMonth,
-    startMonth,
-    year,
-  } = await services.ExpensesService.getExpenses();
+    isLoading,
+  } = useExpenses();
+
+  if (isLoading) {
+    return (
+      <div className="size-full flex items-center justify-center">
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
     <Scaffold title={i18n.t("expenses.title")}>
