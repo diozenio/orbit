@@ -1,15 +1,16 @@
 "use client";
 
+import { Spinner } from "@/primitives/spinner";
 import { Scaffold } from "@/components/Scaffold";
 import { StatsCard } from "@/components/StatsCard";
+import WeeklyChart from "@/components/Expenses/WeeklyChart";
+import { TransactionList } from "@/components/Expenses/TransactionList";
+import MonthLimit from "@/components/Expenses/MonthLimit";
+import EditExpenses from "@/components/Expenses/EditExpenses";
 import { i18n } from "@/i18n";
 import { formatCurrency } from "@/utils/format";
 import { Coins, CreditCard, HandCoins } from "lucide-react";
-import WeeklyChart from "@/components/Expenses/WeeklyChart";
-import MonthLimit from "@/components/Expenses/MonthLimit";
-import { TransactionList } from "@/components/Expenses/TransactionList";
 import { useExpenses } from "@/hooks/useExpenses";
-import { Spinner } from "@/ui/primitives/spinner";
 
 export default function ExpensesLayout() {
   const {
@@ -30,7 +31,14 @@ export default function ExpensesLayout() {
   }
 
   return (
-    <Scaffold title={i18n.t("expenses.title")}>
+    <Scaffold
+      title={i18n.t("expenses.title")}
+      actions={
+        <div className="space-x-4">
+          <EditExpenses />
+        </div>
+      }
+    >
       <div className="grid gap-4 grid-cols-1 @2xl/main:grid-cols-3">
         <StatsCard
           title={i18n.t("expenses.cards.total")}
