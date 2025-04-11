@@ -3,6 +3,7 @@ import { LocaleSchema } from "../schema";
 export const expenses: LocaleSchema["expenses"] = {
   title: "Expenses",
   actions: {
+    editExpenses: {
     trigger: "Edit Expenses",
     dialog: {
       title: "Edit Expenses",
@@ -18,6 +19,8 @@ export const expenses: LocaleSchema["expenses"] = {
           },
         },
       },
+      },
+    },
     },
   },
   cards: {

@@ -1,6 +1,7 @@
 export const expenses = {
   title: "",
   actions: {
+    editExpenses: {
     trigger: "",
     dialog: {
       title: "",
@@ -15,6 +16,8 @@ export const expenses = {
           },
         },
       },
+      },
+    },
     },
   },
   cards: {

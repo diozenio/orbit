@@ -22,10 +22,15 @@ const schema = z.object({
   limit: z.coerce
     .number({
       invalid_type_error: i18n.t(
-        "expenses.actions.dialog.inputs.monthlyLimit.errors.invalid"
+        "expenses.actions.editExpenses.dialog.inputs.monthlyLimit.errors.invalid"
       ),
     })
-    .min(1, i18n.t("expenses.actions.dialog.inputs.monthlyLimit.errors.min")),
+    .min(
+      1,
+      i18n.t(
+        "expenses.actions.editExpenses.dialog.inputs.monthlyLimit.errors.min"
+      )
+    ),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -59,15 +64,17 @@ function EditExpenses({ defaultLimit = 0 }: { defaultLimit?: number }) {
       <DialogTrigger asChild>
         <Button variant="outline">
           <Edit />
-          {i18n.t("expenses.actions.trigger")}
+          {i18n.t("expenses.actions.editExpenses.trigger")}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <form onSubmit={handleSubmit(onSubmit)} className="contents">
           <DialogHeader>
-            <DialogTitle>{i18n.t("expenses.actions.dialog.title")}</DialogTitle>
+            <DialogTitle>
+              {i18n.t("expenses.actions.editExpenses.dialog.title")}
+            </DialogTitle>
             <DialogDescription>
-              {i18n.t("expenses.actions.dialog.description")}
+              {i18n.t("expenses.actions.editExpenses.dialog.description")}
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4 py-4">
@@ -75,13 +82,13 @@ function EditExpenses({ defaultLimit = 0 }: { defaultLimit?: number }) {
               id="weeklyLimit"
               {...register("limit", { required: true })}
               label={i18n.t(
-                "expenses.actions.dialog.inputs.monthlyLimit.label"
+                "expenses.actions.editExpenses.dialog.inputs.monthlyLimit.label"
               )}
             />
           </div>
           <DialogFooter>
             <Button type="submit" loading={isPending}>
-              {i18n.t("expenses.actions.dialog.submit")}
+              {i18n.t("expenses.actions.editExpenses.dialog.submit")}
             </Button>
           </DialogFooter>
         </form>
