@@ -7,7 +7,13 @@ export const expenses = {
       description: "",
       submit: "",
       inputs: {
-        monthlyLimit: "",
+        monthlyLimit: {
+          label: "",
+          errors: {
+            invalid: "",
+            min: "",
+          },
+        },
       },
     },
   },

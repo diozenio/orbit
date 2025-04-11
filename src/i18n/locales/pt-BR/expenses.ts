@@ -10,7 +10,13 @@ export const expenses: LocaleSchema["expenses"] = {
         "Faça alterações em seus gastos aqui. Clique em salvar ao terminar.",
       submit: "Salvar Alterações",
       inputs: {
-        monthlyLimit: "Limite Mensal",
+        monthlyLimit: {
+          label: "Limite Mensal",
+          errors: {
+            invalid: "Informe um valor válido",
+            min: "O limite deve ser maior que zero",
+          },
+        },
       },
     },
   },
