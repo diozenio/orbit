@@ -15,6 +15,8 @@ import { useSetMonthlyLimit } from "@/hooks/useSetMonthlyLimit";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
 const schema = z.object({
   limit: z.coerce
@@ -29,6 +31,9 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 function EditExpenses({ defaultLimit = 0 }: { defaultLimit?: number }) {
+  const [open, setOpen] = useState(false);
+  const queryClient = useQueryClient();
+
   const { mutate: setLimit, isPending } = useSetMonthlyLimit();
 
   const { handleSubmit, register } = useForm<FormData>({
@@ -37,11 +42,20 @@ function EditExpenses({ defaultLimit = 0 }: { defaultLimit?: number }) {
   });
 
   const onSubmit = (data: FormData) => {
-    setLimit({ limit: data.limit });
+    setLimit(
+      { limit: data.limit },
+      {
+        onSuccess: () => {
+          setOpen(false);
+
+          queryClient.invalidateQueries({ queryKey: ["expenses"] });
+        },
+      }
+    );
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">
           <Edit />
