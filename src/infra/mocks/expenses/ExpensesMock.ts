@@ -62,4 +62,13 @@ export default class ExpensesMock extends ExpensesAdapter {
 
     return data.map(TransactionCategory.fromJSON);
   }
+
+  async setMonthlyLimit(
+    month: string,
+    year: string,
+    amount: number
+  ): Promise<void> {
+    console.log(`Setting monthly limit for ${month}/${year} to ${amount}`);
+    return Promise.resolve();
+  }
 }
