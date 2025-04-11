@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
-import { LucideProps, Orbit } from "lucide-react";
+import { LoaderCircleIcon, LucideProps, Orbit } from "lucide-react";
 
 const spinners = {
   orbit: Orbit,
+  circle: LoaderCircleIcon,
 };
 
 export type SpinnerType = keyof typeof spinners;
