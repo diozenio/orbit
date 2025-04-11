@@ -1,13 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { services } from "@/gateways";
+import { currentDate } from "@/lib/date";
 
 export function useExpenses() {
   const { data, isLoading, error } = useQuery({
     queryKey: ["expenses"],
     queryFn: async () => {
-      const currentDate = new Date();
-      const month = (currentDate.getMonth() + 1).toString();
-      const year = currentDate.getFullYear().toString();
+      const { month, year } = currentDate();
 
       return await services.ExpensesService.getExpenses(month, year);
     },
