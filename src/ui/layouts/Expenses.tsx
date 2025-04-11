@@ -35,7 +35,7 @@ export default function ExpensesLayout() {
       title={i18n.t("expenses.title")}
       actions={
         <div className="space-x-4">
-          <EditExpenses />
+          <EditExpenses defaultLimit={monthlyLimit} />
         </div>
       }
     >
