@@ -14,7 +14,6 @@ import { Item, Select, type ComboboxItem } from "./parts";
 
 interface ComboboxProps {
   label?: string;
-  selectPlaceholder?: string;
   placeholder?: string;
   items: ComboboxItem[];
   value?: string;
@@ -25,7 +24,6 @@ interface ComboboxProps {
 
 function Combobox({
   label,
-  selectPlaceholder,
   placeholder,
   items,
   value,
@@ -66,7 +64,7 @@ function Combobox({
     <div className="flex flex-col space-y-2">
       <Label onClick={() => setOpen(true)}>{label}</Label>
       <Popover open={open} onOpenChange={setOpen} modal>
-        <Select placeholder={selectPlaceholder} selected={selected} />
+        <Select placeholder={placeholder} selected={selected} />
         <PopoverContent className="p-0" side="top" align="start">
           <Command>
             <CommandInput placeholder={placeholder} onValueChange={onInput} />
