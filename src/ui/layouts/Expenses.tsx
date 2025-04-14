@@ -11,6 +11,7 @@ import { i18n } from "@/i18n";
 import { formatCurrency } from "@/utils/format";
 import { Coins, CreditCard, HandCoins } from "lucide-react";
 import { useExpenses } from "@/hooks/useExpenses";
+import CreateTransaction from "@/components/Expenses/CreateTransaction";
 
 export default function ExpensesLayout() {
   const {
@@ -36,6 +37,7 @@ export default function ExpensesLayout() {
       actions={
         <div className="space-x-4">
           <EditExpenses defaultLimit={monthlyLimit} />
+          <CreateTransaction />
         </div>
       }
     >
