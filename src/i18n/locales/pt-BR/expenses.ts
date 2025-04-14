@@ -4,23 +4,51 @@ export const expenses: LocaleSchema["expenses"] = {
   title: "Despesas",
   actions: {
     editExpenses: {
-    trigger: "Editar Despesas",
-    dialog: {
-      title: "Editar Despesas",
-      description:
-        "Faça alterações em seus gastos aqui. Clique em salvar ao terminar.",
-      submit: "Salvar Alterações",
-      inputs: {
-        monthlyLimit: {
-          label: "Limite Mensal",
-          errors: {
-            invalid: "Informe um valor válido",
-            min: "O limite deve ser maior que zero",
+      trigger: "Editar Despesas",
+      dialog: {
+        title: "Editar Despesas",
+        description:
+          "Faça alterações em seus gastos aqui. Clique em salvar ao terminar.",
+        submit: "Salvar Alterações",
+        inputs: {
+          monthlyLimit: {
+            label: "Limite Mensal",
+            errors: {
+              invalid: "Informe um valor válido",
+              min: "O limite deve ser maior que zero",
+            },
           },
         },
       },
-      },
     },
+    createTransaction: {
+      trigger: "Criar Transação",
+      dialog: {
+        title: "Criar Transação",
+        description:
+          "Adicione uma nova transação às suas despesas. Preencha os detalhes abaixo e clique em salvar.",
+        inputs: {
+          title: {
+            label: "Título",
+            placeholder: "Spotify Premium, Youtube, IFood, etc..",
+            errors: {
+              invalid: "Informe um título válido",
+            },
+          },
+          amount: {
+            label: "Valor",
+            errors: {
+              invalid: "Informe um valor válido",
+            },
+          },
+          combobox: {
+            empty: {
+              label: 'Criar categoria "{searchValue}"',
+            },
+          },
+        },
+        submit: "Criar Transação",
+      },
     },
   },
   cards: {

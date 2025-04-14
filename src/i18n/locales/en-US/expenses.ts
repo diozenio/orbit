@@ -4,23 +4,51 @@ export const expenses: LocaleSchema["expenses"] = {
   title: "Expenses",
   actions: {
     editExpenses: {
-    trigger: "Edit Expenses",
-    dialog: {
-      title: "Edit Expenses",
-      description:
-        "Make changes to your expenses here. Click save when you're done.",
-      submit: "Save Changes",
-      inputs: {
-        monthlyLimit: {
-          label: "Monthly Limit",
-          errors: {
-            invalid: "Please enter a valid amount",
-            min: "The limit must be greater than zero",
+      trigger: "Edit Expenses",
+      dialog: {
+        title: "Edit Expenses",
+        description:
+          "Make changes to your expenses here. Click save when you're done.",
+        submit: "Save Changes",
+        inputs: {
+          monthlyLimit: {
+            label: "Monthly Limit",
+            errors: {
+              invalid: "Please enter a valid amount",
+              min: "The limit must be greater than zero",
+            },
           },
         },
       },
-      },
     },
+    createTransaction: {
+      trigger: "Create Transaction",
+      dialog: {
+        title: "Create Transaction",
+        description:
+          "Add a new transaction to your expenses. Fill in the details below and click save.",
+        inputs: {
+          amount: {
+            label: "Amount",
+            errors: {
+              invalid: "Please enter a valid amount",
+            },
+          },
+          title: {
+            label: "Title",
+            placeholder: "Spotify Premium, Youtube, IFood, etc...",
+            errors: {
+              invalid: "Please enter a valid title",
+            },
+          },
+          combobox: {
+            empty: {
+              label: 'Create "{searchValue}" category',
+            },
+          },
+        },
+        submit: "Create Transaction",
+      },
     },
   },
   cards: {
