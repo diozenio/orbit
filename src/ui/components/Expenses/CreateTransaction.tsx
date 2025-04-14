@@ -17,7 +17,7 @@ import { Combobox } from "../Form/Combobox";
 import TransactionCategory from "@/models/expenses/TransactionCategory";
 import { ComboboxItem } from "../Form/Combobox/parts";
 
-function getItems(categories?: TransactionCategory[]): ComboboxItem[] {
+function getComboboxItems(categories?: TransactionCategory[]): ComboboxItem[] {
   return (
     categories?.map((category) => ({
       label: category.name,
@@ -30,7 +30,7 @@ function getItems(categories?: TransactionCategory[]): ComboboxItem[] {
 function CreateTransaction() {
   const { categories } = useTransactions();
 
-  const items = getItems(categories);
+  const comboboxItems = getComboboxItems(categories);
 
   return (
     <Dialog>
@@ -67,7 +67,7 @@ function CreateTransaction() {
               )}
             />
             <Combobox
-              items={items}
+              items={comboboxItems}
               label={i18n.t(
                 "expenses.actions.createTransaction.dialog.inputs.combobox.label"
               )}
