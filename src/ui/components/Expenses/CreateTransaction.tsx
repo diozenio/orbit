@@ -33,7 +33,7 @@ function CreateTransaction() {
   const items = getItems(categories);
 
   return (
-    <Dialog defaultOpen>
+    <Dialog>
       <DialogTrigger asChild>
         <Button>
           <CirclePlus />
