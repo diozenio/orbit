@@ -2,6 +2,7 @@ import { Button } from "@/ui/primitives/button";
 import { PopoverTrigger } from "@/ui/primitives/popover";
 import { ChevronsUpDown } from "lucide-react";
 import { ComboboxItem } from "./Combobox.types";
+import { Icon } from "@/primitives/icon";
 
 interface SelectProps {
   placeholder?: string;
@@ -14,7 +15,10 @@ function Select({ placeholder, selected }: SelectProps) {
       <Button variant="outline" className="w-full justify-between">
         {selected ? (
           <div className="flex items-center">
-            <selected.icon className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+            <Icon
+              name={selected.icon}
+              className="mr-2 h-4 w-4 shrink-0 opacity-50"
+            />
             {selected.label}
           </div>
         ) : (
