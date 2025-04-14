@@ -38,6 +38,8 @@ export const expenses = {
             },
           },
           combobox: {
+            label: "",
+            placeholder: "",
             empty: {
               label: "",
             },

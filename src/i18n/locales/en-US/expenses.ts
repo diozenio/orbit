@@ -42,6 +42,8 @@ export const expenses: LocaleSchema["expenses"] = {
             },
           },
           combobox: {
+            label: "Category",
+            placeholder: "Select a category",
             empty: {
               label: 'Create "{searchValue}" category',
             },

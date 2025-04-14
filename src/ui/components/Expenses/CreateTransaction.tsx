@@ -12,8 +12,26 @@ import {
 import { CirclePlus } from "lucide-react";
 import MoneyInput from "./MoneyInput";
 import { TextInput } from "../Form/TextInput";
+import { useTransactions } from "@/hooks/useTransactions";
+import { Combobox } from "../Form/Combobox";
+import TransactionCategory from "@/models/expenses/TransactionCategory";
+import { ComboboxItem } from "../Form/Combobox/parts";
+
+function getItems(categories?: TransactionCategory[]): ComboboxItem[] {
+  return (
+    categories?.map((category) => ({
+      label: category.name,
+      value: category.id,
+      icon: category.icon,
+    })) || []
+  );
+}
 
 function CreateTransaction() {
+  const { categories } = useTransactions();
+
+  const items = getItems(categories);
+
   return (
     <Dialog defaultOpen>
       <DialogTrigger asChild>
@@ -46,6 +64,15 @@ function CreateTransaction() {
               id="amount"
               label={i18n.t(
                 "expenses.actions.createTransaction.dialog.inputs.amount.label"
+              )}
+            />
+            <Combobox
+              items={items}
+              label={i18n.t(
+                "expenses.actions.createTransaction.dialog.inputs.combobox.label"
+              )}
+              placeholder={i18n.t(
+                "expenses.actions.createTransaction.dialog.inputs.combobox.placeholder"
               )}
             />
           </div>
