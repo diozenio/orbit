@@ -40,9 +40,14 @@ export default class Transaction extends Model {
     const obj = new Transaction();
 
     obj._title = String(data["title"]);
-    obj._type = data["type"] as TransactionType;
     obj._amount = Number(data["amount"]);
     obj._transactionCategoryId = String(data["transactionCategoryId"]);
+
+    if (obj._amount < 0) {
+      obj._type = "EXPENSE";
+    } else {
+      obj._type = "INCOME";
+    }
 
     return obj;
   }
