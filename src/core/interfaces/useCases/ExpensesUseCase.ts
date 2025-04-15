@@ -14,4 +14,5 @@ export default abstract class ExpensesUseCase {
     year: string,
     amount: number
   ): Promise<void>;
+  abstract createTransaction(transactions: Transaction[]): Promise<void>;
 }

@@ -23,4 +23,8 @@ export default class ExpensesService extends ExpensesUseCase {
   ): Promise<void> {
     return this.adapter.setMonthlyLimit(month, year, amount);
   }
+
+  async createTransaction(transactions: Transaction[]): Promise<void> {
+    return this.adapter.createTransaction(transactions);
+  }
 }

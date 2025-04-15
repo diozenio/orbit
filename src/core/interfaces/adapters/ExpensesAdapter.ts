@@ -11,4 +11,5 @@ export default abstract class ExpensesAdapter {
     year: string,
     amount: number
   ): Promise<void>;
+  abstract createTransaction(transactions: Transaction[]): Promise<void>;
 }

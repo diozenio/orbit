@@ -71,4 +71,9 @@ export default class ExpensesMock extends ExpensesAdapter {
     console.log(`Setting monthly limit for ${month}/${year} to ${amount}`);
     return Promise.resolve();
   }
+
+  async createTransaction(transaction: Transaction): Promise<void> {
+    console.log(`Creating transaction: ${JSON.stringify(transaction)}`);
+    return Promise.resolve();
+  }
 }

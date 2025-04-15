@@ -59,4 +59,14 @@ export default class ExpensesAPI extends ExpensesAdapter {
       throw new Error(response.data.error);
     }
   }
+
+  async createTransaction(transactions: Transaction[]): Promise<void> {
+    const response = await api.post("/expenses/transactions", {
+      transactions: transactions.map((transaction) => transaction.toJSON()),
+    });
+
+    if (response.status !== 200) {
+      throw new Error(response.data.error);
+    }
+  }
 }
