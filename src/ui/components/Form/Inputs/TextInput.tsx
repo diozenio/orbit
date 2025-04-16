@@ -22,15 +22,19 @@ function TextInput({ label, name, ...rest }: TextInputProps) {
       name={name}
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       control={control as any}
-      render={({ field }) => (
-        <FormItem>
-          {label && <FormLabel>{label}</FormLabel>}
-          <FormControl>
-            <Input {...rest} {...field} />
-          </FormControl>
-          <FormMessage />
-        </FormItem>
-      )}
+      render={({ field }) => {
+        const { value, ...f } = field;
+
+        return (
+          <FormItem>
+            {label && <FormLabel>{label}</FormLabel>}
+            <FormControl>
+              <Input {...rest} value={value ?? ""} {...f} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        );
+      }}
     />
   );
 }

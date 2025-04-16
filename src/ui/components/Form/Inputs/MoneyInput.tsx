@@ -29,28 +29,32 @@ function MoneyInput({
       name={name}
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       control={control as any}
-      render={({ field }) => (
-        <FormItem>
-          {label && <FormLabel>{label}</FormLabel>}
-          <FormControl>
-            <div className="relative">
-              <Input
-                {...rest}
-                {...field}
-                placeholder={placeholder}
-                className={cn("peer pe-12 ps-8", className)}
-              />
-              <span className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50">
-                R$
-              </span>
-              <span className="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-sm text-muted-foreground peer-disabled:opacity-50">
-                BRL
-              </span>
-            </div>
-          </FormControl>
-          <FormMessage />
-        </FormItem>
-      )}
+      render={({ field }) => {
+        const { value, ...f } = field;
+        return (
+          <FormItem>
+            {label && <FormLabel>{label}</FormLabel>}
+            <FormControl>
+              <div className="relative">
+                <Input
+                  {...rest}
+                  {...f}
+                  value={value ?? ""}
+                  placeholder={placeholder}
+                  className={cn("peer pe-12 ps-8", className)}
+                />
+                <span className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50">
+                  R$
+                </span>
+                <span className="pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-sm text-muted-foreground peer-disabled:opacity-50">
+                  BRL
+                </span>
+              </div>
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        );
+      }}
     />
   );
 }
